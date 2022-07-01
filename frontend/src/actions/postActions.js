@@ -1,5 +1,5 @@
 import * as api from '../api/index';
-import { CREATE } from '../constants/actionTypes';
+import { CREATE, FETCH_ALL } from '../constants/actionTypes';
 
 export const createPost = (post) => async (dispatch) => {
    try {
@@ -9,4 +9,14 @@ export const createPost = (post) => async (dispatch) => {
    } catch (error) {
     console.log(error.message);
    } 
+}
+
+export const getPosts = () => async (dispatch) =>{
+   try{
+      const {data} = await api.fetchPost();
+      dispatch({type: FETCH_ALL, payload: data})
+      console.log('ActionFetch:',data);
+   } catch (error) {
+      console.log(error.message);
+   }
 }

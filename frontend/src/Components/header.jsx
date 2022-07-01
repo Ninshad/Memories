@@ -193,13 +193,14 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
+            
           </Search>
 
                   <Button style={{ color: 'white' }} color='secondary' href="/" >
                       Home
                   </Button>
-                  <Button style={{ color: 'white' }} color='secondary' href="/addproduct">
-                  Add product
+                  <Button style={{ color: 'white' }} color='secondary' href="/addpost">
+                  Add Post
                   </Button>
                   <Button style={{ color: 'white' }} color='secondary' href="/about">
                   About
