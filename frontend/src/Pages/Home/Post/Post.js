@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
-// import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 // import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-
-// import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './styles';
+import { likePost } from '../../../actions/postActions';
 
 const Post = ({ post, setCurrentId }) => {
+
+
+  const likeButtonClick = (id) => {
+    dispatch(likePost(id))
+  }
+
+  // useEffect(() => {
+    
+  // }, [])
+  
+  
+
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -31,8 +42,8 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        {/* <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button> */}
+      <Button size="small" color="primary" onClick={() => likeButtonClick(post._id)}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
+        {/* <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>  */}  
       </CardActions>
     </Card>
   );
