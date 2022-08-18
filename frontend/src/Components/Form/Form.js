@@ -4,7 +4,7 @@ import FileBase from 'react-file-base64';
 import useStyles from './styles';
 import { Button, Paper, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/postActions';
+import { createPost, updatePost } from '../../actions/postActions';
 
 const Form = ({ currentId, setCurrentId }) => {
 
@@ -20,9 +20,15 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createPost(postData))
-    clear()
 
+    if(currentId == 0){
+      dispatch(createPost(postData))
+      clear()
+
+    }
+    else
+      dispatch(updatePost(currentId, postData))
+      clear()
   };
 
 

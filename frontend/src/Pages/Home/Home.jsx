@@ -10,11 +10,10 @@ import { useDispatch } from 'react-redux';
 import { getPosts } from '../../actions/postActions';
 
 const Home = () => {
+  const [currentId, setCurrentId] = useState(0);
   const posts = useSelector((state) => state.postReducers);
   const classes = useStyles();
   console.log('POSTS:',posts);
-
-  const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {

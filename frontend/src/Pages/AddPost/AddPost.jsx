@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PrimarySearchAppBar from '../../Components/header'
 import Form from '../../Components/Form/Form'
 import { Grid, Grow } from '@mui/material'
@@ -13,6 +13,9 @@ import { getPosts } from '../../actions/postActions';
 import './styles.css'
 
 const AddPost = () => {
+
+  const [currentId, setCurrentId] = useState(0);
+
   const posts = useSelector((state) => state.postReducers);
   const classes = useStyles();
 
@@ -30,7 +33,7 @@ const AddPost = () => {
     <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {posts.map((post) => (
           <Grid key={post._id} item xs={12} sm={6} md={3}>
-            <Post post={post} />
+            <Post post={post} setCurrentId={setCurrentId} />
           </Grid>
         ))}
       </Grid>
@@ -39,7 +42,7 @@ const AddPost = () => {
       <div className='postListing'>
     <Grow in>
     <Grid item xs={12} sm={4} md={6}>
-              <Form />
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
         </Grid>
         </Grow>
       </div> 
