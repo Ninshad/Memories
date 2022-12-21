@@ -17,7 +17,11 @@ app.use('/posts', postRoutes);
 app.use('/api', productRoutes);
 
 
-const CONNECTION_URL = 'mongodb+srv://ninshad-mern1234:A14yXF8dkyuefszu@cluster0.zrckji7.mongodb.net/?retryWrites=true&w=majority';
+// const CONNECTION_URL = 'mongodb+srv://ninshad-mern1234:A14yXF8dkyuefszu@cluster0.zrckji7.mongodb.net/?retryWrites=true&w=majority';
+
+
+const CONNECTION_URL = 'mongodb+srv://ninshad123:HPRXDrXjUlJ4al2z@cluster0.zrckji7.mongodb.net/?retryWrites=true&w=majority'
+
 
 const PORT = process.env.PORT || 5000
 
